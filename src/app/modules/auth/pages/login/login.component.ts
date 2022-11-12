@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,23 +6,24 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styles: [],
 })
 export class LoginComponent implements OnInit {
-  public loginForm!: FormGroup;
+  protected isLoginFormVisible: boolean = true;
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.setupLoginForm();
+  ngOnInit(): void {}
+
+  public handleLoginFormData(event: any) {
+    console.log(event);
+    this.isLoginFormVisible = false;
+
+    // 1. Se recibe la data
+    // 2. Se la envía al server ('til they do it)
+    // 3. Se cambia al otro componente
+    // 4. Se verifica si el código es correcto mandando eso al server
+    // 5. Si este es correcto, se redirige al dashboard; si no, se lanza mensaje de error
   }
 
-  private setupLoginForm() {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.required]],
-    });
-  }
-
-  public login() {
-    console.log(this.loginForm.value)
-    console.log(this.loginForm.valid)
+  public handleVerificationCode(event: string) {
+    console.log(event);
   }
 }

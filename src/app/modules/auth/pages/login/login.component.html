@@ -22,54 +22,24 @@
         >
           ¡Hola!
         </h1>
-        <span class="text-gray-20 lg:text-2xl font-medium lg:font-normal"
-          >Inicia sesión en tu cuenta</span
-        >
+        <span class="text-gray-20 lg:text-2xl lg:font-normal">
+          {{
+            isLoginFormVisible
+              ? "Inicia sesión en tu cuenta"
+              : "Se te ha enviado un código a tu correo registrado, por favor ingrésalo a continuación:"
+          }}
+        </span>
       </div>
     </div>
+    <app-login-form
+      (loginDataEmitter)="handleLoginFormData($event)"
+      *ngIf="isLoginFormVisible; else verificationCode"
+    ></app-login-form>
 
-    <!-- FORM BODY -->
-    <form class="flex flex-col gap-7" [formGroup]="loginForm">
-      <div>
-        <label for="email" class="font-medium text-gray-20"
-          >Correo electrónico</label
-        >
-        <input
-          type="text"
-          id="email"
-          class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
-          formControlName="email"
-        />
-      </div>
-
-      <div>
-        <label for="password" class="font-medium text-gray-20"
-          >Contraseña</label
-        >
-        <input
-          type="password"
-          id="password"
-          class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
-          formControlName="password"
-        />
-      </div>
-    </form>
-
-    <!-- FORM FOOTER -->
-    <div>
-      <button
-        type="button"
-        value="Iniciar sesión"
-        class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest"
-        [disabled]="loginForm.invalid"
-        [ngClass]="{
-          'bg-accent-light text-gray-50': loginForm.invalid,
-          'bg-accent text-gray-100': loginForm.valid
-        }"
-        (click)="login()"
-      >
-        Iniciar sesión
-      </button>
-    </div>
+    <ng-template #verificationCode>
+      <app-verification-code
+        (verificationCodeEmitter)="handleVerificationCode($event)"
+      ></app-verification-code>
+    </ng-template>
   </div>
 </div>

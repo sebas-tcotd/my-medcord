@@ -4,7 +4,12 @@ import { AuthModule } from './modules/auth/auth.module';
 import { LoginComponent } from './modules/auth/pages/login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
