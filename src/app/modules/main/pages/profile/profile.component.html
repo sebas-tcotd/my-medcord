@@ -1,1 +1,283 @@
-<p>profile works!</p>
+<div>
+  <div
+    class="flex flex-row items-center justify-between px-6 lg:px-8 my-8 lg:mt-16"
+  >
+    <h2 class="text-gray-20 lg:text-3xl">Mi perfil</h2>
+  </div>
+
+  <div class="mx-6 mb-6 flex flex-col gap-6">
+    <!-- CARD PERSONAL DATA -->
+    <div class="flex flex-col gap-6 bg-gray-100 px-6 py-8 rounded-md shadow-md">
+      <h3 class="text-lg">Datos personales</h3>
+
+      <div>
+        <ul class="w-full flex flex-col gap-4">
+          <li class="flex flex-col w-full">
+            <h4 class="font-medium">Foto</h4>
+            <span>Próximamente podrás añadir una foto para tu cuenta.</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">Nombre completo</h4>
+            <span>{{ "USER" }}</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">DNI</h4>
+            <span>777777777</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">Género</h4>
+            <span>Femenino</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CONTACT DATA -->
+    <div class="flex flex-col gap-6 bg-gray-100 px-6 py-8 rounded-md shadow-md">
+      <div class="flex flex-row justify-between items-center">
+        <h3 class="text-lg">Datos de contacto</h3>
+
+        <button
+          type="button"
+          class="border border-accent text-accent px-6 py-2 rounded-md"
+          (click)="contactDialog.showModal()"
+        >
+          Editar
+        </button>
+      </div>
+
+      <div>
+        <ul class="w-full flex flex-col gap-4">
+          <li class="flex flex-col w-full">
+            <h4 class="font-medium">Correo electrónico</h4>
+            <span>julia.altamirano@gmail.com</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">Telefonía celular</h4>
+            <span>968 990 450</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="flex flex-col gap-6 bg-gray-100 px-6 py-8 rounded-md shadow-md">
+      <div class="flex flex-row justify-between items-center">
+        <h3 class="text-lg">Contraseña</h3>
+        <button
+          type="button"
+          class="border border-accent text-accent px-6 py-2 rounded-md"
+          (click)="resetPassword.showModal()"
+        >
+          Editar
+        </button>
+      </div>
+
+      <div>
+        <ul class="w-full flex flex-col gap-4">
+          <li class="flex flex-col w-full">
+            <h4 class="font-medium">Actual</h4>
+            <span>*****</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- JOB DATA -->
+    <div class="flex flex-col gap-6 bg-gray-100 px-6 py-8 rounded-md shadow-md">
+      <div class="flex flex-row justify-between items-center">
+        <h3 class="text-lg">Datos del trabajo</h3>
+        <button
+          type="button"
+          class="border border-accent text-accent px-6 py-2 rounded-md"
+          (click)="jobDataDialog.showModal()"
+        >
+          Editar
+        </button>
+      </div>
+
+      <div>
+        <ul class="w-full flex flex-col gap-4">
+          <li class="flex flex-col w-full">
+            <h4 class="font-medium">Rol</h4>
+            <span>Enfermera/o</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">Firma</h4>
+            <span>firma.png</span>
+          </li>
+
+          <hr class="border-gray-70" />
+
+          <li>
+            <h4 class="font-medium">Sello escaneado</h4>
+            <span>sello.png</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIALOG ZONE -->
+<!-- Contact dialog -->
+<dialog #contactDialog class="rounded-md shadow-lg w-[500px]">
+  <h3 class="text-lg">Datos de contacto</h3>
+
+  <form class="flex flex-col gap-4">
+    <div>
+      <label for="last-name" class="font-medium text-gray-20"
+        >julia.altamirano@gmail.com</label
+      >
+      <input
+        type="text"
+        id="last-name"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Gomez Altamirano"
+      />
+    </div>
+
+    <div>
+      <label for="telephone" class="font-medium text-gray-20">Teléfono *</label>
+      <input
+        type="tel"
+        id="telephone"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. 999 999 999"
+      />
+    </div>
+
+    <hr class="border-gray-80" />
+
+    <div class="flex flex-row gap-4 justify-end">
+      <button
+        type="submit"
+        class="px-6 py-2 bg-accent text-gray-100 rounded-md tracking-widest"
+      >
+        Guardar
+      </button>
+      <button
+        type="reset"
+        class="text-accent tracking-widest"
+        (click)="contactDialog.close()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</dialog>
+
+<dialog #resetPassword class="rounded-md shadow-lg w-[500px]">
+  <div>
+    <h3 class="text-lg">Editar contraseña</h3>
+    <p>
+      Tu contraseña debe tener mínimo 8 caracteres entre letras, números y 1
+      caracter especial.
+    </p>
+  </div>
+
+  <form class="flex flex-col gap-4">
+    <div>
+      <label for="password" class="font-medium text-gray-20"
+        >Nueva contraseña *</label
+      >
+      <input
+        type="password"
+        id="password"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+      />
+    </div>
+
+    <div>
+      <label for="password" class="font-medium text-gray-20"
+        >Repetir contraseña *</label
+      >
+      <input
+        type="password"
+        id="password"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+      />
+    </div>
+
+    <hr class="border-gray-80" />
+
+    <div class="flex flex-row gap-4 justify-end">
+      <button
+        type="submit"
+        class="px-6 py-2 bg-accent text-gray-100 rounded-md tracking-widest"
+      >
+        Guardar
+      </button>
+      <button
+        type="reset"
+        class="text-accent tracking-widest"
+        (click)="resetPassword.close()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</dialog>
+
+<dialog #jobDataDialog class="rounded-md shadow-lg w-[500px]">
+  <form class="flex flex-col gap-4">
+    <div>
+      <label for="files" class="font-medium text-gray-20"
+        >Firma  *</label
+      >
+      <input
+        type="file"
+        id="files"
+        class="file:rounded-md file:bg-dominant-light file:border-none file:px-4 file:py-2 w-full cursor-pointer file:cursor-pointer"
+        accept="image/png"
+        formControlName="signatureAndStamp"
+      />
+    </div>
+
+    <div>
+      <label for="files" class="font-medium text-gray-20"
+        >Sello escaneado *</label
+      >
+      <input
+        type="file"
+        id="files"
+        class="file:rounded-md file:bg-dominant-light file:border-none file:px-4 file:py-2 w-full cursor-pointer file:cursor-pointer"
+        accept="image/png"
+        formControlName="signatureAndStamp"
+      />
+    </div>
+
+    <hr class="border-gray-80" />
+
+    <div class="flex flex-row gap-4 justify-end">
+      <button
+        type="submit"
+        class="px-6 py-2 bg-accent text-gray-100 rounded-md tracking-widest"
+      >
+        Guardar
+      </button>
+      <button
+        type="reset"
+        class="text-accent tracking-widest"
+        (click)="jobDataDialog.close()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</dialog>
