@@ -24,6 +24,9 @@ module.exports = {
         20: "#4B4B4B",
         0: "#000000",
       },
+      white: {
+        soft: "#FAFAFA",
+      },
       state: {
         success: "#38A169",
         info: "#3182CE",
