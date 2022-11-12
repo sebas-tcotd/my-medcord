@@ -5,8 +5,12 @@ import { LoginComponent } from './modules/auth/pages/login/login.component';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./modules/main/main.module').then((m) => m.MainModule),
+  },
+  {
     path: 'login',
-    component: LoginComponent,
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
