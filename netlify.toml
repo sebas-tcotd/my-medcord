@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/fisinius"
+  publish = "dist/my-medcord"
   command = "ng build"
 [[redirects]]
   from = "/*"
