@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddUserComponent } from './pages/add-user/add-user.component';
 import { MainComponent } from './pages/main/main.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
@@ -10,8 +11,13 @@ const routes: Routes = [
     component: MainComponent,
     title: 'My Medcord',
     children: [
-      { path: 'users', component: UsersComponent, title: 'Usuarios' },
+      {
+        path: 'addUser',
+        component: AddUserComponent,
+        title: 'Agregar usuario',
+      },
       { path: 'profile', component: ProfileComponent, title: 'Perfil' },
+      { path: 'users', component: UsersComponent, title: 'Usuarios' },
     ],
   },
 ];

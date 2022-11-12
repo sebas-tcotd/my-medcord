@@ -5,6 +5,10 @@ import { MainRoutingModule } from './main-routing.module';
 import { UsersComponent } from './pages/users/users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserFormComponent } from './pages/add-user/components/user-form.component';
 
 
 
@@ -12,12 +16,16 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
     MainComponent,
     UsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddUserComponent,
+    UserFormComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
-    SharedModule
+    RouterModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }
