@@ -1,0 +1,127 @@
+<form
+  class="flex flex-col gap-7 px-6 py-11 rounded-xl shadow-md mx-6 mb-12 bg-gray-100"
+  [formGroup]="addUserForm"
+>
+  <div class="flex flex-col lg:grid lg:grid-cols-2 gap-7">
+    <div>
+      <label for="name" class="font-medium text-gray-20">Nombres *</label>
+      <input
+        type="text"
+        id="name"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Lucía Daniela"
+        formControlName="surname"
+      />
+    </div>
+
+    <div>
+      <label for="last-name" class="font-medium text-gray-20"
+        >Apellidos *</label
+      >
+      <input
+        type="text"
+        id="last-name"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Gomez Altamirano"
+        formArrayName="lastname"
+      />
+    </div>
+
+    <div>
+      <label for="gender" class="font-medium text-gray-20">Género *</label>
+      <select
+        id="gender"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="gender"
+      >
+        <option disabled selected>Selecciona un género</option>
+        <option value="">Masculino</option>
+        <option value="">Femenino</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="dni" class="font-medium text-gray-20">DNI *</label>
+      <input
+        type="text"
+        id="dni"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. 71369098"
+        formControlName="dni"
+      />
+    </div>
+
+    <div>
+      <label for="email" class="font-medium text-gray-20"
+        >Correo electrónico *</label
+      >
+      <input
+        type="email"
+        id="email"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. lucia.gomez@gmail.com"
+        formControlName="email"
+      />
+    </div>
+
+    <div>
+      <label for="telephone" class="font-medium text-gray-20"
+        >Teléfono *</label
+      >
+      <input
+        type="tel"
+        id="telephone"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. 999 999 999"
+        formControlName="telephone"
+      />
+    </div>
+
+    <div>
+      <label for="role" class="font-medium text-gray-20">Rol *</label>
+      <select
+        id="role"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="role"
+      >
+        <option disabled selected>Selecciona un rol</option>
+        <option value="">Enfermera/o</option>
+        <option value="">Doctor/a</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="permission" class="font-medium text-gray-20">Permiso *</label>
+      <select
+        id="permission"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="permission"
+      >
+        <option disabled selected>Selecciona un permiso</option>
+        <option value="">Restringido</option>
+        <option value="">Lector</option>
+        <option value="">Editor</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="files" class="font-medium text-gray-20"
+        >Firma y sello escaneado *</label
+      >
+      <input
+        type="file"
+        id="files"
+        class="file:rounded-md file:bg-dominant-light file:border-none file:px-4 file:py-2 w-full cursor-pointer file:cursor-pointer"
+        accept="image/png"
+        formControlName="signatureAndStamp"
+      />
+
+      <small>Subir como “firma.png” y “sello.png”</small>
+    </div>
+  </div>
+  <hr class="border-gray-80" />
+  <div class="flex flex-row gap-4 justify-end">
+    <button type="submit">Agregar</button>
+    <button type="reset">Cancelar</button>
+  </div>
+</form>

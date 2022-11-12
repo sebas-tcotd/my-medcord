@@ -1,0 +1,72 @@
+<form [formGroup]="verificationForm" class="flex flex-col gap-6">
+  <div class="flex justify-around lg:justify-start lg:gap-3">
+    <input
+      type="number"
+      class="h-10 w-10 md:h-16 md:w-16 px-3 rounded-md | text-base md:text-2xl text-center | border border-gray-80 focus:outline-accent"
+      maxlength="1"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      min="0"
+      max="9"
+      formControlName="digitOne"
+      [ngClass]="{
+        'bg-gray-90': !verificationForm.controls['digitOne'].pristine
+      }"
+    />
+    <input
+      type="number"
+      class="h-10 w-10 md:h-16 md:w-16 px-3 rounded-md | text-base md:text-2xl text-center | border border-gray-80 focus:outline-accent"
+      maxlength="1"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      min="0"
+      max="9"
+      formControlName="digitTwo"
+      [ngClass]="{
+        'bg-gray-90': !verificationForm.controls['digitTwo'].pristine
+      }"
+    />
+    <input
+      type="number"
+      class="h-10 w-10 md:h-16 md:w-16 px-3 rounded-md | text-base md:text-2xl text-center | border border-gray-80 focus:outline-accent"
+      maxlength="1"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      min="0"
+      max="9"
+      formControlName="digitThree"
+      [ngClass]="{
+        'bg-gray-90': !verificationForm.controls['digitThree'].pristine
+      }"
+    />
+    <input
+      type="number"
+      class="h-10 w-10 md:h-16 md:w-16 px-3 rounded-md | text-base md:text-2xl text-center | border border-gray-80 focus:outline-accent"
+      maxlength="1"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      min="0"
+      max="9"
+      formControlName="digitFour"
+      [ngClass]="{
+        'bg-gray-90': !verificationForm.controls['digitFour'].pristine
+      }"
+    />
+  </div>
+
+  <div class="flex flex-col lg:flex-row lg:items-center | gap-6">
+    <button
+      type="button"
+      value="Iniciar sesión"
+      class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest"
+      [disabled]="verificationForm.invalid"
+      [ngClass]="{
+        'bg-accent-light text-gray-50': verificationForm.invalid,
+        'bg-accent text-gray-100': verificationForm.valid
+      }"
+      (click)="sendVerification()"
+    >
+      Ingresar
+    </button>
+
+    <a class="text-accent font-medium tracking-widest text-center cursor-pointer"
+      >Volver a enviar</a
+    >
+  </div>
+</form>
