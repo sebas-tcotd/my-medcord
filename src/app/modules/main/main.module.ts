@@ -1,15 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './pages/main/main.component';
-import { MainRoutingModule } from './main-routing.module';
-import { UsersComponent } from './pages/users/users.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { SharedModule } from '../../shared/shared.module';
-import { AddUserComponent } from './pages/add-user/add-user.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserFormComponent } from './pages/add-user/components/user-form.component';
+
 import { StoreModule } from '@ngrx/store';
+
+import { FeaturesEnum } from '../../core/enums/features.enum';
+import { SharedModule } from '../../shared/shared.module';
+import { MainRoutingModule } from './main-routing.module';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { UserFormComponent } from './pages/add-user/components/user-form.component';
+import { MainComponent } from './pages/main/main.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { UsersComponent } from './pages/users/users.component';
 import { mainReducers } from './state/main.reducer';
 
 @NgModule({
@@ -26,7 +29,7 @@ import { mainReducers } from './state/main.reducer';
     RouterModule,
     SharedModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('main', mainReducers),
+    StoreModule.forFeature(FeaturesEnum.MAIN, mainReducers),
   ],
 })
 export class MainModule {}
