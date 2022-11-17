@@ -11,29 +11,44 @@
   </div>
   <div class="overflow-x-scroll px-6 pb-6">
     <table class="w-full table-auto">
-      <thead class="bg-accent-light lg:h-14 text-gray-20">
+      <thead class="bg-accent-light lg:h-14 text-gray-20 text-left">
         <tr>
-          <th class="pl-6 pr-16 rounded-tl-xl">DNI</th>
-          <th class="pr-16">Apellidos</th>
-          <th class="pr-16">Nombres</th>
-          <th class="pr-16">Celular</th>
-          <th class="pr-16">Correo electrónico</th>
-          <th class="pr-16">Rol</th>
-          <th class="pr-16">Permiso</th>
-          <th class="pr-16 rounded-tr-xl">Acciones</th>
+          <th class="font-medium pl-6 pr-16 rounded-tl-xl">DNI</th>
+          <th class="font-medium pl-6 pr-16">Apellidos</th>
+          <th class="font-medium pl-6 pr-16">Nombres</th>
+          <th class="font-medium pl-6 pr-16">Celular</th>
+          <th class="font-medium pl-6 pr-16">Correo electrónico</th>
+          <th class="font-medium pl-6 pr-16">Rol</th>
+          <th class="font-medium pl-6 pr-16">Permiso</th>
+          <th class="font-medium pl-6 pr-16 rounded-tr-xl">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="bg-gray-100 h-16">
-          <td
-            colspan="8"
-            class="lg:text-center pl-6 rounded-b-xl shadow-lg text-gray-20"
-            *ngIf="!users?.length"
+        <ng-container *ngIf="users?.length; else noUsers">
+          <tr
+            *ngFor="let user of users"
+            class="bg-gray-100 h-16 last:rounded-b-xl shadow-lg border-b-gray-80 last:border-0"
           >
-            Aún no existen registros
-          </td>
-        </tr>
+            <ng-container>
+              <td
+                *ngFor="let prop of user | keyvalue"
+                class="pl-6 overflow-hidden last-of-type-group:first:rounded-bl-xl text-left last:rounded-br-xl text-gray-20"
+              >
+                {{ prop.value }}
+              </td>
+            </ng-container>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
 </div>
+
+<ng-template #noUsers>
+  <td
+    colspan="8"
+    class="lg:text-center pl-6 rounded-b-xl shadow-lg text-gray-20"
+  >
+    Aún no existen registros
+  </td>
+</ng-template>

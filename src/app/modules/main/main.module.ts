@@ -9,8 +9,8 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './pages/add-user/components/user-form.component';
-
-
+import { StoreModule } from '@ngrx/store';
+import { mainReducers } from './state/main.reducer';
 
 @NgModule({
   declarations: [
@@ -18,14 +18,15 @@ import { UserFormComponent } from './pages/add-user/components/user-form.compone
     UsersComponent,
     ProfileComponent,
     AddUserComponent,
-    UserFormComponent
+    UserFormComponent,
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     RouterModule,
     SharedModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    StoreModule.forFeature('main', mainReducers),
+  ],
 })
-export class MainModule { }
+export class MainModule {}
