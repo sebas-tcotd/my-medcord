@@ -11,7 +11,10 @@ export const verificationCode = createAction(
   props<{ code: string }>()
 );
 
-export const loginSuccessful = createAction('[Auth] LOGIN_SUCCESSFULL');
+export const loginSuccessful = createAction(
+  '[Auth] LOGIN_SUCCESSFULL',
+  props<{ user: User; accessToken: string }>()
+);
 
 export const loginFailed = createAction(
   '[Auth] LOGIN_FAILED',

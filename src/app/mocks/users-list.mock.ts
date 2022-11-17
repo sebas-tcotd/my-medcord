@@ -13,6 +13,7 @@ export const usersListMock: User[] = [
     role: RoleEnum.NURSE,
     gender: GenderEnum.FEMALE,
     permissions: PermissionsEnum.READER,
+    id: 0,
   },
   {
     dni: '73856790',
@@ -23,5 +24,6 @@ export const usersListMock: User[] = [
     role: RoleEnum.NURSE,
     gender: GenderEnum.FEMALE,
     permissions: PermissionsEnum.READER,
+    id: 1,
   },
 ];

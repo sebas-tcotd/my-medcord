@@ -11,4 +11,5 @@ export interface User {
   telephone: string;
   permissions: PermissionsEnum;
   role: RoleEnum;
+  id: number
 }

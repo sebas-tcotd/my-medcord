@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appReducers } from './store/app.reducer';
+import { EffectsArray } from './store/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,7 @@ import { appReducers } from './store/app.reducer';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    EffectsModule.forRoot(EffectsArray),
   ],
   providers: [],
   bootstrap: [AppComponent],
