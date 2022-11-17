@@ -18,6 +18,7 @@ const routes: Routes = [
       },
       { path: 'profile', component: ProfileComponent, title: 'Perfil' },
       { path: 'users', component: UsersComponent, title: 'Usuarios' },
+      { path: '**', redirectTo: 'users', pathMatch: 'full' },
     ],
   },
 ];

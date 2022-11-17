@@ -1,14 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
+import { User } from '../../core/models/user.model';
 import * as authActions from '../actions/auth.actions';
 
-export interface AuthState {
-  credentials: { email: string; password: string };
-  verification: string;
+export interface UserState {
+  user: User | null;
 }
 
-const authInitialState: AuthState = {
-  credentials: { email: '', password: '' },
-  verification: '',
+const authInitialState: UserState = {
+  user: null,
 };
 
 export const authReducer = createReducer(authInitialState);
