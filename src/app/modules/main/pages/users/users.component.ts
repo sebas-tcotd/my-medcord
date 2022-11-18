@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ColDef } from 'ag-grid-community';
+
 import { usersListMock } from '../../../../mocks/users-list.mock';
 
 @Component({
@@ -8,16 +11,11 @@ import { usersListMock } from '../../../../mocks/users-list.mock';
 })
 export class UsersComponent implements OnInit {
   public users: any[] = usersListMock;
-  public columns: string[] = [
-    'DNI',
-    'Apellidos',
-    'Nombres',
-    'Celular',
-    'Correo electrónico',
-    'Rol',
-    'Permisos',
-    'Acciones',
-  ];
+  public columns: ColDef[] = [
+    { field: 'make' },
+    { field: 'model' },
+    { field: 'price' },
+  ];;
 
   constructor() {}
 

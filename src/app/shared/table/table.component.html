@@ -1,4 +1,4 @@
-<div class="overflow-x-scroll px-6 pb-6">
+<!-- <div class="overflow-x-scroll px-6 pb-6">
   <table class="w-full table-auto">
     <thead class="bg-accent-light lg:h-14 text-gray-20 text-left">
       <tr>
@@ -47,13 +47,13 @@
             </div>
           </td>
 
-          <!-- <ng-container *ngFor="let prop of row | keyvalue">
+          <ng-container *ngFor="let prop of row | keyvalue">
             <td
               class="pl-6 overflow-hidden last-of-type-group:first:rounded-bl-xl text-left last:rounded-br-xl text-gray-20"
             >
               {{ prop.value }}
             </td>
-          </ng-container> -->
+          </ng-container>
         </tr>
       </ng-container>
     </tbody>
@@ -71,4 +71,12 @@
       Aún no existen registros
     </td>
   </tr>
-</ng-template>
+</ng-template> -->
+<div class="px-9 mr-auto">
+  <ag-grid-angular
+    class="rounded-md flex-auto ag-theme-alpine"
+    domLayout="autoHeight"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+  ></ag-grid-angular>
+</div>
