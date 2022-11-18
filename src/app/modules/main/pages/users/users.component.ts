@@ -8,6 +8,16 @@ import { usersListMock } from '../../../../mocks/users-list.mock';
 })
 export class UsersComponent implements OnInit {
   public users: any[] = usersListMock;
+  public columns: string[] = [
+    'DNI',
+    'Apellidos',
+    'Nombres',
+    'Celular',
+    'Correo electrónico',
+    'Rol',
+    'Permisos',
+    'Acciones',
+  ];
 
   constructor() {}
 

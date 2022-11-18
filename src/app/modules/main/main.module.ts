@@ -14,6 +14,7 @@ import { MainComponent } from './pages/main/main.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
 import { mainReducers } from './state/main.reducer';
+import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-history.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { mainReducers } from './state/main.reducer';
     ProfileComponent,
     AddUserComponent,
     UserFormComponent,
+    ClinicalHistoryComponent,
   ],
   imports: [
     CommonModule,

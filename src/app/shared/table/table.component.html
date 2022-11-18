@@ -1,0 +1,74 @@
+<div class="overflow-x-scroll px-6 pb-6">
+  <table class="w-full table-auto">
+    <thead class="bg-accent-light lg:h-14 text-gray-20 text-left">
+      <tr>
+        <ng-container *ngFor="let column of columns">
+          <th
+            class="first:rounded-tl-xl last:rounded-tr-xl font-medium pl-6 pr-16"
+          >
+            {{ column }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngIf="data?.length; else noUsers">
+        <tr
+          *ngFor="let row of data"
+          class="bg-gray-100 h-16 border-b border-b-gray-80 last:border-0 group"
+        >
+          <td class="group-last:first:rounded-bl-xl group-last:shadow-lg">
+            {{ row?.dni }}
+          </td>
+          <td>
+            {{ row?.lastname }}
+          </td>
+          <td>
+            {{ row?.name }}
+          </td>
+          <td>
+            {{ row?.telephone }}
+          </td>
+          <td>
+            {{ row?.email }}
+          </td>
+          <td>
+            {{ row?.role }}
+          </td>
+          <td>
+            {{ row?.permissions }}
+          </td>
+
+          <td>
+            <div class="flex gap-3 items-center flex-row h-full cursor-pointer">
+              <span class="material-symbols-outlined"> edit </span>
+              <span class="material-symbols-outlined"> back_hand </span>
+            </div>
+          </td>
+
+          <!-- <ng-container *ngFor="let prop of row | keyvalue">
+            <td
+              class="pl-6 overflow-hidden last-of-type-group:first:rounded-bl-xl text-left last:rounded-br-xl text-gray-20"
+            >
+              {{ prop.value }}
+            </td>
+          </ng-container> -->
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsers>
+  <tr
+    class="bg-gray-100 h-16 last:rounded-b-xl shadow-lg border-b-gray-80 last:border-0"
+  >
+    <td
+      [attr.colspan]="columns.length"
+      class="lg:text-center pl-6 rounded-b-xl shadow-lg text-gray-20"
+    >
+      Aún no existen registros
+    </td>
+  </tr>
+</ng-template>
