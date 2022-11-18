@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ColDef } from 'ag-grid-community';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { AgEvent, AgGridEvent, ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-table',
@@ -7,17 +8,31 @@ import { ColDef } from 'ag-grid-community';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
+  @ViewChild('tableGrid') grid!: AgGridAngular;
   @Input() rowData: any;
   @Input() columnDefs: ColDef[] = [];
 
-  constructor() {}
+  private _noRowsToShowMessage: string = '';
 
-  ngOnInit(): void {
+  constructor() {
+    this.noRowsToShowMessage = 'Aún no existen registros';
+  }
 
-    this.rowData = [
-      { make: 'Toyota', model: 'Celica', price: 35000 },
-      { make: 'Ford', model: 'Mondeo', price: 32000 },
-      { make: 'Porsche', model: 'Boxster', price: 72000 },
-    ];
+  ngOnInit(): void {}
+
+  public onGridSizeChanged(params: any) {
+    const width = params.clientWidth;
+    if (width > 480) {
+      params.api.sizeColumnsToFit();
+    } else {
+      params.columnApi.autoSizeAllColumns();
+    }
+  }
+
+  public get noRowsToShowMessage(): string {
+    return this._noRowsToShowMessage;
+  }
+  public set noRowsToShowMessage(value: string) {
+    this._noRowsToShowMessage = value;
   }
 }

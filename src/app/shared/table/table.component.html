@@ -72,11 +72,13 @@
     </td>
   </tr>
 </ng-template> -->
-<div class="px-9 mr-auto">
+<div class="px-9 mr-auto ">
   <ag-grid-angular
-    class="rounded-md flex-auto ag-theme-alpine"
+    class="rounded-md ag-theme-alpine"
     domLayout="autoHeight"
     [rowData]="rowData"
     [columnDefs]="columnDefs"
+    (gridSizeChanged)="onGridSizeChanged($event)"
+    [overlayNoRowsTemplate]="noRowsToShowMessage"
   ></ag-grid-angular>
 </div>

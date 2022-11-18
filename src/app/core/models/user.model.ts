@@ -5,11 +5,11 @@ import { RoleEnum } from '../enums/role.enum';
 export interface User {
   name: string;
   lastname: string;
-  gender: GenderEnum;
+  gender?: GenderEnum;
   dni: string;
   email: string;
   telephone: string;
   permissions: PermissionsEnum;
   role: RoleEnum;
-  id: number
+  id?: number;
 }
