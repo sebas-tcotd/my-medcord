@@ -34,7 +34,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: "🔍 run tests"
-        run: npm run test --if-present
+        run: npm test -- --watch=false --browsers=ChromeHeadless
 
   lint:
     name: Code standards
