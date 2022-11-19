@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
 
   private isViewportMobile(): boolean {
     const width = window.innerWidth;
-    console.log(width);
 
     if (width <= 1024) {
       return true;

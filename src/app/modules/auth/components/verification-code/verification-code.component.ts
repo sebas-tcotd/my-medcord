@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verification-code',
@@ -11,7 +12,7 @@ export class VerificationCodeComponent implements OnInit {
 
   protected verificationForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.setupForm();
@@ -34,6 +35,7 @@ export class VerificationCodeComponent implements OnInit {
         verificationCode += e.toString();
       });
       this.verificationCodeEmitter.emit(verificationCode);
+      this.router.navigate(['/users']);
     }
   }
 }

@@ -1,0 +1,14 @@
+.ag-theme-alpine {
+  --ag-header-height: 30px;
+  --ag-header-foreground-color: #4b4b4b;
+  --ag-header-background-color: #ebf5ff;
+  --ag-header-cell-hover-background-color: hsl(210, 100%, 94%);
+  --ag-header-cell-moving-background-color: hsl(210, 100%, 92%);
+  --ag-font-family: Poppins, sans-serif;
+  --ag-borders: none;
+  --ag-borders-row: solid 1px;
+  --ag-row-border-color: #e1e1e1;
+  --ag-grid-size: 4px;
+  --ag-row-height: 44px;
+  --ag-border-radius: 12px;
+}
