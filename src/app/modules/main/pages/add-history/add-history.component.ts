@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-add-history',
   templateUrl: './add-history.component.html',
-  styleUrls: ['./add-history.component.scss']
+  styleUrls: ['./add-history.component.scss'],
 })
-export class AddHistoryComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class AddHistoryComponent {
+  constructor() {}
 }

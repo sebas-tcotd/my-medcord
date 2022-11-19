@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styles: [],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   protected isLoginFormVisible: boolean = true;
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   public handleLoginFormData(event: any) {
     console.log(event);

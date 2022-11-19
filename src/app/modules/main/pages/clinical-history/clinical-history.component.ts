@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { ClinicalHistoryTableColumns } from './clinical-history.config';
 
@@ -7,10 +7,8 @@ import { ClinicalHistoryTableColumns } from './clinical-history.config';
   templateUrl: './clinical-history.component.html',
   styles: [],
 })
-export class ClinicalHistoryComponent implements OnInit {
+export class ClinicalHistoryComponent {
   public columnDefs: ColDef[] = ClinicalHistoryTableColumns;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

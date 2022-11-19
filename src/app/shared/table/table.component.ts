@@ -1,13 +1,13 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { AgEvent, AgGridEvent, ColDef } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   @ViewChild('tableGrid') grid!: AgGridAngular;
   @Input() rowData: any;
   @Input() columnDefs: ColDef[] = [];
@@ -17,8 +17,6 @@ export class TableComponent implements OnInit {
   constructor() {
     this.noRowsToShowMessage = 'Aún no existen registros';
   }
-
-  ngOnInit(): void {}
 
   public onGridSizeChanged(params: any) {
     const width = params.clientWidth;

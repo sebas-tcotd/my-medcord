@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ColDef } from 'ag-grid-community';
 import { PermissionsEnum } from '../../../../core/enums/permissions.enum';
@@ -13,11 +13,9 @@ import { UsersTableColumns } from './users.config';
   templateUrl: './users.component.html',
   styles: [],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
   public users: User[] = usersListMock;
   public columns: ColDef[] = UsersTableColumns;
 
   constructor() {}
-
-  ngOnInit(): void {}
 }
