@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddHistoryComponent } from './pages/add-history/add-history.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-history.component';
 import { MainComponent } from './pages/main/main.component';
@@ -16,6 +17,11 @@ const routes: Routes = [
         path: 'addUser',
         component: AddUserComponent,
         title: 'Agregar usuario',
+      },
+      {
+        path: 'addHistory',
+        component: AddHistoryComponent,
+        title: 'Agregar historia clínica',
       },
       {
         path: 'clinical-history',

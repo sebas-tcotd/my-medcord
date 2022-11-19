@@ -1,0 +1,175 @@
+<form
+  class="flex flex-col gap-7 px-6 py-11 rounded-xl shadow-md mx-6 mb-12 bg-gray-100 text-gray-20"
+  [formGroup]="clinicalHistoryForm"
+>
+  <div class="flex flex-col lg:grid lg:grid-cols-2 gap-7">
+    <div>
+      <label for="name" class="font-medium text-gray-20">Nombres *</label>
+      <input
+        type="text"
+        id="name"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Lucía Daniela"
+        formControlName="name"
+      />
+    </div>
+
+    <div>
+      <label for="lastname" class="font-medium text-gray-20">Apellidos *</label>
+      <input
+        type="text"
+        id="lastname"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Gomez Altamirano"
+        formControlName="lastname"
+      />
+    </div>
+
+    <div>
+      <label for="gender" class="font-medium text-gray-20">Género *</label>
+      <select
+        id="gender"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="gender"
+      >
+        <option disabled selected>Selecciona un género</option>
+        <option [value]="GenderEnum.MALE">Masculino</option>
+        <option [value]="GenderEnum.FEMALE">Femenino</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="dni" class="font-medium text-gray-20">DNI/CE *</label>
+      <input
+        type="text"
+        id="dni"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. 71369098"
+        formControlName="dni"
+      />
+    </div>
+
+    <div>
+      <label for="birthDate" class="font-medium text-gray-20"
+        >Fecha de nacimiento *</label
+      >
+      <input
+        type="date"
+        id="birthDate"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="birthDate"
+      />
+    </div>
+
+    <div>
+      <label for="birthPlace" class="font-medium text-gray-20"
+        >Lugar de nacimiento *</label
+      >
+      <input
+        type="text"
+        id="birthPlace"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Lima"
+        formControlName="birthPlace"
+      />
+    </div>
+
+    <div>
+      <label for="nationality" class="font-medium text-gray-20"
+        >Nacionalidad *</label
+      >
+      <select
+        id="nationality"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="nationality"
+      >
+        <option disabled selected hidden>Selecciona una nacionalidad</option>
+        <option value="0">Peruana</option>
+        <option value="1">Extranjera</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="address" class="font-medium text-gray-20">Domicilio *</label>
+      <input
+        type="text"
+        id="address"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. Av. Arequipa 345, dpt. 340"
+        formControlName="address"
+      />
+    </div>
+
+    <div>
+      <label for="telephone" class="font-medium text-gray-20">Teléfono *</label>
+      <input
+        type="tel"
+        id="telephone"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Ej. 999 999 999"
+        formControlName="telephone"
+      />
+    </div>
+  </div>
+  <hr class="border-gray-80" />
+  <div class="flex flex-row gap-4 justify-end">
+    <button
+      class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest"
+      [disabled]="clinicalHistoryForm.invalid"
+      [ngClass]="{
+        'bg-accent-light text-gray-50': clinicalHistoryForm.invalid,
+        'bg-accent text-gray-100': clinicalHistoryForm.valid
+      }"
+      type="submit"
+      (click)="preconfirmationDialog.showModal()"
+    >
+      Agregar
+    </button>
+    <button class="text-accent font-medium tracking-widest" type="reset">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+<!-- PRECONFIRMATION MODAL -->
+<dialog #preconfirmationDialog class="rounded-md shadow-lg w-[500px]">
+  <div class="flex flex-col">
+    <div class="flex justify-end">
+      <button
+        type="button"
+        class="h-12 w-12 lg:h-6 lg:w-6"
+        (click)="preconfirmationDialog.close()"
+      >
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center gap-12">
+      <div class="flex flex-col gap-3 items-center">
+        <span class="material-symbols-outlined text-5xl text-gray-20">
+          create_new_folder
+        </span>
+        <h4 class="font-medium text-xl text-gray-0">Crear historia clínica</h4>
+        <span class="text-sm"
+          >¿Deseas crear la historia con los datos ingresados?</span
+        >
+      </div>
+
+      <div class="flex flex-row self-end gap-3">
+        <button
+          class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest | bg-accent text-gray-100"
+          type="submit"
+          (click)="createClinicalHistory()"
+        >
+          Sí, crear
+        </button>
+        <button
+          class="text-accent font-medium tracking-widest px-6"
+          (click)="preconfirmationDialog.close()"
+        >
+          No, cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>

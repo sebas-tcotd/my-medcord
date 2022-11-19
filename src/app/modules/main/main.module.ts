@@ -15,6 +15,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
 import { mainReducers } from './state/main.reducer';
 import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-history.component';
+import { AddHistoryComponent } from './pages/add-history/add-history.component';
+import { HistoryFormComponent } from './pages/add-history/components/history-form/history-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-hist
     AddUserComponent,
     UserFormComponent,
     ClinicalHistoryComponent,
+    AddHistoryComponent,
+    HistoryFormComponent,
   ],
   imports: [
     CommonModule,
