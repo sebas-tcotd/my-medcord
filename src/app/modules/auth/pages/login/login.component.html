@@ -23,23 +23,20 @@
           ¡Hola!
         </h1>
         <span class="text-gray-20 lg:text-2xl lg:font-normal">
-          {{
-            isLoginFormVisible
-              ? "Inicia sesión en tu cuenta"
-              : "Se te ha enviado un código a tu correo registrado, por favor ingrésalo a continuación:"
-          }}
+          Inicia sesión en tu cuenta
         </span>
       </div>
     </div>
     <app-login-form
       (loginDataEmitter)="handleLoginFormData($event)"
-      *ngIf="isLoginFormVisible; else verificationCode"
     ></app-login-form>
 
-    <ng-template #verificationCode>
+    <!-- <ng-template #verificationCode>
       <app-verification-code
         (verificationCodeEmitter)="handleVerificationCode($event)"
       ></app-verification-code>
-    </ng-template>
+    </ng-template> -->
   </div>
 </div>
+
+<app-loading></app-loading>

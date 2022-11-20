@@ -1,2 +1,2 @@
 export * from './auth.actions';
-export * from './viewport.actions';
+export * from './ui.actions';

@@ -3,10 +3,10 @@ import * as reducers from './reducers';
 
 export interface AppState {
   auth: reducers.UserState;
-  viewport: reducers.ViewportState;
+  ui: reducers.UiState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
   auth: reducers.authReducer,
-  viewport: reducers.viewportReducer,
+  ui: reducers.uiReducer,
 };
