@@ -15,10 +15,15 @@ import { LocalStorageKeyEnum } from '../../core/enums/localStorage-key.enum';
 import { UsersService } from '../../core/services/users.service';
 import * as rootActions from '../actions';
 import { LoginErrorResponse } from '../../core/interfaces/login.interface';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private usersService: UsersService) {}
+  constructor(
+    private actions$: Actions,
+    private usersService: UsersService,
+    private router: Router
+  ) {}
 
   public login$ = createEffect(() =>
     this.actions$.pipe(
@@ -34,12 +39,6 @@ export class AuthEffects {
                   user: response.user,
                 })
               ),
-              tap(({ access_token }) => {
-                localStorage.setItem(
-                  LocalStorageKeyEnum.TOKEN,
-                  access_token as string
-                );
-              }),
               catchError((err: LoginErrorResponse) =>
                 of(rootActions.loginFailed({ payload: err }))
               )
@@ -47,6 +46,19 @@ export class AuthEffects {
           of(rootActions.loadingFinished())
         )
       )
+    )
+  );
+
+  public loginSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(rootActions.loginSuccessful),
+      tap((response) => {
+        localStorage.setItem(
+          LocalStorageKeyEnum.TOKEN,
+          response.access_token as string
+        );
+        this.router.navigateByUrl('/users');
+      })
     )
   );
 }
