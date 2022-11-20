@@ -1,14 +1,6 @@
 ![Logo](https://lh3.googleusercontent.com/u/1/drive-viewer/AFDK6gOu5a8xNET5uf0Lw2u6p1FuVo2wzpwC3t8QrclVaqE49TTRuJ-K58T_4WX6c1bAiwfBzRtp5AgE2kVQRDEjBcl4PW-r=w1920-h932)
 
-<div style="display: flex; flex-direction: row; gap: 1rem; justify-content: start">
-
-[![Netlify status](https://img.shields.io/netlify/6861d0c5-8ac5-4413-9ebb-57fb71a44bf5?logo=netlify&style=for-the-badge)](https://www.netlify.com/)
-
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sebas-tcotd/my-medcord/Development/develop?color=blue&logo=github&style=for-the-badge)
-
-![GitHub Last Commit](https://img.shields.io/github/last-commit/sebas-tcotd/my-medcord?logo=github&style=for-the-badge)
-
-</div>
+[![Netlify status](https://img.shields.io/netlify/6861d0c5-8ac5-4413-9ebb-57fb71a44bf5?logo=netlify&style=for-the-badge)](https://www.netlify.com/) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sebas-tcotd/my-medcord/Development/develop?color=blue&logo=github&style=for-the-badge) ![GitHub Last Commit](https://img.shields.io/github/last-commit/sebas-tcotd/my-medcord?logo=github&style=for-the-badge)
 
 # My Medcord
 
