@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UsersService {
-  private url: string = environment.URL_BACKEND;
+  private _url: string = environment.URL_BACKEND;
 
   constructor(private http: HttpClient) {}
 
@@ -24,5 +24,9 @@ export class UsersService {
     const endpoint = `${this.url}/users/register`;
 
     return this.http.post<UserResponse>(endpoint, body);
+  }
+
+  public get url(): string {
+    return this._url;
   }
 }
