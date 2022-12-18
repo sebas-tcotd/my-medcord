@@ -1,14 +1,17 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableComponent } from './table.component';
 
+import {GridApi} from 'ag-grid-community';
+
 describe('TableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
-
+ 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      declarations: [ TableComponent ],
     })
     .compileComponents();
 
@@ -19,5 +22,23 @@ describe('TableComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('adjust table when grater than 400 pixels', () => {
+    let numEjecucion = 0;
+    let params = { "clientWidth": 600, "api": {
+      "sizeColumnsToFit": () => {numEjecucion++}
+    }}
+    component.onGridSizeChanged(params)
+    expect(numEjecucion).toEqual(1)
+  });
+
+  it('adjust table when lesser than 400 pixels', () => {
+    let numEjecucion = 0;
+    let params = { "clientWidth": 200, "columnApi": {
+      "autoSizeAllColumns": () => {numEjecucion++}
+    }}
+    component.onGridSizeChanged(params)
+    expect(numEjecucion).toEqual(1)
   });
 });
