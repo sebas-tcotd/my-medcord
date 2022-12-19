@@ -17,7 +17,8 @@ describe('AuthGuard', () => {
     expect(guard).toBeTruthy();
   });
 
-  it('should', () => {
+  it('should load', () => {
+    localStorage['access_token'] = 'access_token';
     guard.canLoad()
   });
 
