@@ -16,4 +16,14 @@ describe('AuthGuard', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
+
+  it('should', () => {
+    // localStorage['access_token'] = 'access_token'
+    guard.canLoad()
+  });
+
+  // it('should', () => {
+  //   localStorage['access_token'] = false
+  //   guard.canLoad()
+  // });
 });
