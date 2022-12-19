@@ -18,12 +18,7 @@ describe('AuthGuard', () => {
   });
 
   it('should', () => {
-    // localStorage['access_token'] = 'access_token'
     guard.canLoad()
   });
 
-  // it('should', () => {
-  //   localStorage['access_token'] = false
-  //   guard.canLoad()
-  // });
 });

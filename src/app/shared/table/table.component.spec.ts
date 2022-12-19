@@ -1,9 +1,6 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableComponent } from './table.component';
-
-import {GridApi} from 'ag-grid-community';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -11,7 +8,7 @@ describe('TableComponent', () => {
  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponent ],
+      declarations: [ TableComponent ]
     })
     .compileComponents();
 
