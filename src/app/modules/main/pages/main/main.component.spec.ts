@@ -20,4 +20,9 @@ describe('MainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be false', () =>{
+    window.innerWidth = 2000;
+    expect(component.isMobile).toBeFalsy;
+  })
 });
