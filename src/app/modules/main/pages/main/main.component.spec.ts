@@ -21,7 +21,7 @@ describe('MainComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be false', () =>{
+  it('should set the status as false while viewport gets thinner', () =>{
     window.innerWidth = 2000;
     expect(component.isMobile).toBeFalsy;
   })

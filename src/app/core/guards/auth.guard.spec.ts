@@ -17,7 +17,7 @@ describe('AuthGuard', () => {
     expect(guard).toBeTruthy();
   });
 
-  it('should load', () => {
+  it('should redirect to the main page', () => {
     localStorage['access_token'] = 'access_token';
     guard.canLoad()
   });
