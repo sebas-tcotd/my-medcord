@@ -31,7 +31,5 @@ export class HistoryFormComponent implements OnInit {
     });
   }
 
-  public createClinicalHistory() {
-
-  }
+  public createClinicalHistory() {}
 }
