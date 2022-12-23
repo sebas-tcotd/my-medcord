@@ -10,7 +10,7 @@ export class AuthGuard implements CanLoad {
   constructor(private router: Router, private usersService: UsersService) {}
   canLoad(): Promise<boolean> | boolean {
     const token = localStorage.getItem(LocalStorageKeyEnum.TOKEN);
-    if (!token) {
+    if (!token || typeof token === undefined) {
       return this.router.navigate(['login']);
     }
     return true;

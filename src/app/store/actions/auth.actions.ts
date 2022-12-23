@@ -25,7 +25,7 @@ export const loginFailed = createAction(
 
 export const setUserData = createAction(
   '[Auth] SET_USER_DATA',
-  props<{ payload: User }>()
+  props<{ user: User }>()
 );
 
 export const unsetUserData = createAction('[Auth] UNSET_USER_DATA');

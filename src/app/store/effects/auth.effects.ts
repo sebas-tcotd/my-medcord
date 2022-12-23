@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { concat, merge, of } from 'rxjs';
+import { concat, of } from 'rxjs';
 import {
   catchError,
   concatMap,
   map,
-  mergeMap,
   switchMap,
+  take,
   tap,
 } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -37,6 +37,7 @@ export class AuthEffects {
               map((response) =>
                 rootActions.loginSuccessful({
                   user: response.user,
+                  access_token: response.access_token,
                 })
               ),
               catchError((err: LoginErrorResponse) =>
@@ -52,13 +53,15 @@ export class AuthEffects {
   public loginSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(rootActions.loginSuccessful),
+      take(1),
       tap((response) => {
         localStorage.setItem(
           LocalStorageKeyEnum.TOKEN,
-          response.access_token as string
+          JSON.stringify(response.access_token)
         );
         this.router.navigateByUrl('/users');
-      })
+      }),
+      switchMap((action) => of(rootActions.setUserData(action)))
     )
   );
 }

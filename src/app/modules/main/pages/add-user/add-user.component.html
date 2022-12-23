@@ -3,4 +3,4 @@
   <h2 class="text-sm text-gray-20 font-medium">Agregar nuevo usuario</h2>
 </div>
 
-<app-user-form></app-user-form>
+<app-user-form (formDataEmitter)="handleForm($event)"></app-user-form>

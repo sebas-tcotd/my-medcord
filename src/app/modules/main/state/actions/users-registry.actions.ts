@@ -4,12 +4,16 @@ import { User } from '../../../../core/models/user.model';
 export const usersLoad = createAction('[Users Registry] USERS_LOAD');
 
 export const loadUsersSuccessful = createAction(
-  '[Users Registry] USERS_DATA_SUCCESSFULLY_LOADED'
+  '[Users Registry] USERS_DATA_SUCCESSFULLY_LOADED',
+  props<{ users: User[] }>()
 );
 
-export const loadUsersError = createAction('[Users Registry] USERS_LOAD_ERROR');
+export const loadUsersError = createAction(
+  '[Users Registry] USERS_LOAD_ERROR',
+  props<{ payload: any }>()
+);
 
-export const userAdded = createAction(
+export const userAddition = createAction(
   '[User Registry] USERS_ADDITION_ATTEMPTED',
   props<{ payload: User }>()
 );

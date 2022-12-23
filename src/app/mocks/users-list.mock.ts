@@ -8,7 +8,6 @@ export const userMock: User = {
   email: 'mail@example.com',
   lastname: 'Vizcarra',
   name: 'Martín',
-  permissions: PermissionsEnum.EDITOR,
   role: RoleEnum.MEDIC,
   telephone: '999999999',
   gender: GenderEnum.MALE,
@@ -23,7 +22,6 @@ export const usersListMock: User[] = [
     telephone: '979 978 456',
     email: 'camilo.herrera@gmail.com',
     role: RoleEnum.NURSE,
-    permissions: PermissionsEnum.READER,
   },
   {
     dni: '73856790',
@@ -32,7 +30,6 @@ export const usersListMock: User[] = [
     telephone: '979 978 456',
     email: 'camilo.herrera@gmail.com',
     role: RoleEnum.NURSE,
-    permissions: PermissionsEnum.READER,
   },
   {
     dni: '73856790',
@@ -41,7 +38,6 @@ export const usersListMock: User[] = [
     telephone: '979 978 456',
     email: 'camilo.herrera@gmail.com',
     role: RoleEnum.NURSE,
-    permissions: PermissionsEnum.READER,
   },
   {
     dni: '73856790',
@@ -50,6 +46,5 @@ export const usersListMock: User[] = [
     telephone: '979 978 456',
     email: 'camilo.herrera@gmail.com',
     role: RoleEnum.NURSE,
-    permissions: PermissionsEnum.READER,
   },
 ];

@@ -9,7 +9,6 @@ export interface User {
   dni: string;
   email: string;
   telephone: string;
-  permissions: PermissionsEnum;
   role: RoleEnum;
   id?: number;
 }

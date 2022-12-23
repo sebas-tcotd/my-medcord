@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    // canLoad: [AuthGuard],
+    canLoad: [AuthGuard],
     loadChildren: () =>
       import('./modules/main/main.module').then((m) => m.MainModule),
   },
