@@ -7,7 +7,6 @@ export const UsersTableColumns: ColDef[] = [
   { field: 'telephone', headerName: 'Celular' },
   { field: 'email', headerName: 'Correo Electrónico' },
   { field: 'role', headerName: 'Rol' },
-  { field: 'permissions', headerName: 'Permisos' },
   {
     field: 'actions',
     headerName: 'Acciones',

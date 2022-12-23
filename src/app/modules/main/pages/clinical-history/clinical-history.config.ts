@@ -1,12 +1,12 @@
 import { ColDef } from 'ag-grid-community';
 
 export const ClinicalHistoryTableColumns: ColDef[] = [
-  { field: 'clinicId', headerName: 'N° de H.C' },
+  { field: 'id', headerName: 'N° de H.C' },
   { field: 'dni', headerName: 'DNI/CE' },
-  { field: 'lastname', headerName: 'Apellidos' },
-  { field: 'name', headerName: 'Nombres' },
-  { field: 'birthday', headerName: 'Fecha Nac.' },
-  { field: 'citizenship', headerName: 'Nacionalidad' },
+  { field: 'lastName', headerName: 'Apellidos' },
+  { field: 'firstName', headerName: 'Nombres' },
+  { field: 'birthdate', headerName: 'Fecha Nac.' },
+  { field: 'nationality', headerName: 'Nacionalidad' },
   { field: 'telephone', headerName: 'Teléfono' },
   {
     field: 'actions',

@@ -2,8 +2,13 @@
   <app-sidebar></app-sidebar>
 
   <main class="flex-1 min-h-screen">
-    <div class="flex flex-row justify-between items-center h-24 w-full py-6 px-9 shadow-sm" *ngIf="!isMobile">
-      <h3 class="font-medium text-gray-20">¡Te damos la bienvenida, {{ "USER" }}!</h3>
+    <div
+      class="flex flex-row justify-between items-center h-24 w-full py-6 px-9 shadow-sm"
+      *ngIf="!isMobile"
+    >
+      <h3 class="font-medium text-gray-20">
+        ¡Te damos la bienvenida, {{ (userName$ | async) || "USER" }}!
+      </h3>
       <img src="../../../assets/svg/avatar-female.svg" alt="Hola USER" />
     </div>
 

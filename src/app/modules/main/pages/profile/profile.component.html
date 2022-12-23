@@ -21,21 +21,21 @@
 
           <li>
             <h4 class="font-medium">Nombre completo</h4>
-            <span>{{ "USER" }}</span>
+            <span>{{ (user$ | async)?.name || "USER" }}</span>
           </li>
 
           <hr class="border-gray-70" />
 
           <li>
             <h4 class="font-medium">DNI</h4>
-            <span>777777777</span>
+            <span>{{ (user$ | async)?.dni || "Sin registro de DNI" }} </span>
           </li>
 
           <hr class="border-gray-70" />
 
           <li>
             <h4 class="font-medium">Género</h4>
-            <span>Femenino</span>
+            <span>{{ (user$ | async)?.gender }}</span>
           </li>
         </ul>
       </div>
@@ -59,14 +59,14 @@
         <ul class="w-full flex flex-col gap-4">
           <li class="flex flex-col w-full">
             <h4 class="font-medium">Correo electrónico</h4>
-            <span>julia.altamirano@gmail.com</span>
+            <span> {{ (user$ | async)?.email }}</span>
           </li>
 
           <hr class="border-gray-70" />
 
           <li>
             <h4 class="font-medium">Telefonía celular</h4>
-            <span>968 990 450</span>
+            <span>{{ (user$ | async)?.telephone }}</span>
           </li>
         </ul>
       </div>
@@ -112,7 +112,7 @@
         <ul class="w-full flex flex-col gap-4">
           <li class="flex flex-col w-full">
             <h4 class="font-medium">Rol</h4>
-            <span>Enfermera/o</span>
+            <span>{{ (user$ | async)?.role }} </span>
           </li>
 
           <hr class="border-gray-70" />
@@ -237,9 +237,7 @@
 <dialog #jobDataDialog class="rounded-md shadow-lg w-[500px]">
   <form class="flex flex-col gap-4">
     <div>
-      <label for="files" class="font-medium text-gray-20"
-        >Firma  *</label
-      >
+      <label for="files" class="font-medium text-gray-20">Firma *</label>
       <input
         type="file"
         id="files"

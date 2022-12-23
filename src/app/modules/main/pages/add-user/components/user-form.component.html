@@ -10,7 +10,7 @@
         id="name"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
         placeholder="Ej. Lucía Daniela"
-        formControlName="surname"
+        formControlName="name"
       />
     </div>
 
@@ -23,7 +23,7 @@
         id="last-name"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
         placeholder="Ej. Gomez Altamirano"
-        formArrayName="lastname"
+        formControlName="lastname"
       />
     </div>
 
@@ -35,8 +35,8 @@
         formControlName="gender"
       >
         <option disabled selected>Selecciona un género</option>
-        <option value="">Masculino</option>
-        <option value="">Femenino</option>
+        <option [value]="GenderEnum.MALE">Masculino</option>
+        <option [value]="GenderEnum.FEMALE">Femenino</option>
       </select>
     </div>
 
@@ -65,9 +65,20 @@
     </div>
 
     <div>
-      <label for="telephone" class="font-medium text-gray-20"
-        >Teléfono *</label
+      <label for="password" class="font-medium text-gray-20"
+        >Contraseña *</label
       >
+      <input
+        type="password"
+        id="password"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        placeholder="Asigne una contraseña"
+        formControlName="password"
+      />
+    </div>
+
+    <div>
+      <label for="telephone" class="font-medium text-gray-20">Teléfono *</label>
       <input
         type="tel"
         id="telephone"
@@ -85,22 +96,8 @@
         formControlName="role"
       >
         <option disabled selected>Selecciona un rol</option>
-        <option value="">Enfermera/o</option>
-        <option value="">Doctor/a</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="permission" class="font-medium text-gray-20">Permiso *</label>
-      <select
-        id="permission"
-        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
-        formControlName="permission"
-      >
-        <option disabled selected>Selecciona un permiso</option>
-        <option value="">Restringido</option>
-        <option value="">Lector</option>
-        <option value="">Editor</option>
+        <option [value]="RoleEnum.NURSE">Enfermera/o</option>
+        <option [value]="RoleEnum.MEDIC">Doctor/a</option>
       </select>
     </div>
 
@@ -121,7 +118,7 @@
   </div>
   <hr class="border-gray-80" />
   <div class="flex flex-row gap-4 justify-end">
-    <button type="submit">Agregar</button>
+    <button type="submit" (click)="emitForm()">Agregar</button>
     <button type="reset">Cancelar</button>
   </div>
 </form>

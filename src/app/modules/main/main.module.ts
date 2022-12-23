@@ -17,6 +17,8 @@ import { mainReducers } from './state/main.reducer';
 import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-history.component';
 import { AddHistoryComponent } from './pages/add-history/add-history.component';
 import { HistoryFormComponent } from './pages/add-history/components/history-form/history-form.component';
+import { EffectsModule } from '@ngrx/effects';
+import { MainEffectsArray } from './state/effects';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { HistoryFormComponent } from './pages/add-history/components/history-for
     SharedModule,
     ReactiveFormsModule,
     StoreModule.forFeature(FeaturesEnum.MAIN, mainReducers),
+    EffectsModule.forFeature(MainEffectsArray),
   ],
 })
 export class MainModule {}

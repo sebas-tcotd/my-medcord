@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Login, LoginResponse } from '../interfaces/login.interface';
 import { UserResponse } from '../interfaces/user-response.interface';
+import { UsersResponse } from '../interfaces/users-response';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -24,6 +25,22 @@ export class UsersService {
     const endpoint = `${this.url}/users/register`;
 
     return this.http.post<UserResponse>(endpoint, body);
+  }
+
+  public updateLoggedUserInfo(body: {
+    email: string;
+    password: string;
+    telephone: string;
+  }) {
+    const endpoint = `${this.url}/users`;
+
+    return this.http.put(endpoint, body);
+  }
+
+  public getUsers() {
+    const endpoint = `${this.url}/users`;
+
+    return this.http.get<UsersResponse>(endpoint);
   }
 
   public get url(): string {

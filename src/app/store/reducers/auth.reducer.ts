@@ -23,5 +23,9 @@ export const authReducer = createReducer(
   on(authActions.loginFailed, (state, { payload }) => ({
     ...state,
     error: payload,
+  })),
+  on(authActions.setUserData, (state, { user }) => ({
+    ...state,
+    user,
   }))
 );

@@ -10,7 +10,7 @@
         id="name"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
         placeholder="Ej. Lucía Daniela"
-        formControlName="name"
+        formControlName="firstName"
       />
     </div>
 
@@ -21,7 +21,7 @@
         id="lastname"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
         placeholder="Ej. Gomez Altamirano"
-        formControlName="lastname"
+        formControlName="lastName"
       />
     </div>
 
@@ -57,7 +57,7 @@
         type="date"
         id="birthDate"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
-        formControlName="birthDate"
+        formControlName="birthdate"
       />
     </div>
 
@@ -70,7 +70,7 @@
         id="birthPlace"
         class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
         placeholder="Ej. Lima"
-        formControlName="birthPlace"
+        formControlName="birthplace"
       />
     </div>
 
@@ -84,8 +84,9 @@
         formControlName="nationality"
       >
         <option disabled selected hidden>Selecciona una nacionalidad</option>
-        <option value="0">Peruana</option>
-        <option value="1">Extranjera</option>
+        <option [value]="NationalityEnum.PERUVIAN">Peruana</option>
+        <option [value]="NationalityEnum.VENEZUELAN">Venezolana</option>
+        <option [value]="NationalityEnum.OTHER">Otro</option>
       </select>
     </div>
 
@@ -159,7 +160,7 @@
         <button
           class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest | bg-accent text-gray-100"
           type="submit"
-          (click)="createClinicalHistory()"
+          (click)="createClinicalHistory(); preconfirmationDialog.close()"
         >
           Sí, crear
         </button>

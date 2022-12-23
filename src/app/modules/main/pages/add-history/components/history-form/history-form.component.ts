@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenderEnum } from '../../../../../../core/enums/gender.enum';
+import { NationalityEnum } from '../../../../../../core/enums/nationality.enum';
 
 @Component({
   selector: 'app-history-form',
@@ -8,8 +9,12 @@ import { GenderEnum } from '../../../../../../core/enums/gender.enum';
   styles: [],
 })
 export class HistoryFormComponent implements OnInit {
+  @Output() formEmitter: EventEmitter<FormGroup> =
+    new EventEmitter<FormGroup>();
+
   public clinicalHistoryForm!: FormGroup;
   public GenderEnum = GenderEnum;
+  public NationalityEnum = NationalityEnum;
 
   constructor(private fb: FormBuilder) {}
 
@@ -19,17 +24,21 @@ export class HistoryFormComponent implements OnInit {
 
   private setupForm(): void {
     this.clinicalHistoryForm = this.fb.group({
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       gender: ['', Validators.required],
       dni: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      birthPlace: ['', Validators.required],
+      birthdate: ['', Validators.required],
+      birthplace: ['', Validators.required],
       nationality: ['', Validators.required],
       address: ['', Validators.required],
       telephone: ['', Validators.required],
     });
   }
 
-  public createClinicalHistory() {}
+  public createClinicalHistory() {
+    if (this.clinicalHistoryForm.valid) {
+      this.formEmitter.emit(this.clinicalHistoryForm);
+    }
+  }
 }

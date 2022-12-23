@@ -1,5 +1,7 @@
 <div class="flex flex-col gap-8">
-  <div class="flex flex-row items-center justify-between px-6 lg:px-8 my-8 lg:mt-16">
+  <div
+    class="flex flex-row items-center justify-between px-6 lg:px-8 my-8 lg:mt-16"
+  >
     <h2 class="text-gray-20 lg:text-3xl">Registro de usuarios</h2>
     <button
       type="button"
@@ -10,5 +12,8 @@
     </button>
   </div>
 
-  <app-table [rowData]="users" [columnDefs]="columns"></app-table>
+  <app-table
+    [rowData]="users$ | async"
+    [columnDefs]="columns"
+  ></app-table>
 </div>
