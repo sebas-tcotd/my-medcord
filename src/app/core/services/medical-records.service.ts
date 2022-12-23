@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 import { MedicalRecord } from '../models/medical-record.model';
+import { MedicalRecordResponse } from '../interfaces/medical-record.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,15 @@ export class MedicalRecordsService {
   constructor(private http: HttpClient) {}
 
   public createMedicalRecord(medicalRecord: MedicalRecord) {
-    const endpoint = `${this.url}/medical-record/create`;
+    const endpoint = `${this.url}/medical-records/create`;
 
-    return this.http.post(endpoint, medicalRecord);
+    return this.http.post<MedicalRecordResponse>(endpoint, medicalRecord);
+  }
+
+  public getMedicalRecords() {
+    const endpoint = `${this.url}/medical-records`;
+
+    return this.http.get<MedicalRecordResponse[]>(endpoint);
   }
 
   get url(): string {

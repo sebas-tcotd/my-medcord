@@ -5,12 +5,14 @@ import * as reducers from './reducers';
 
 export interface MainState {
   usersRegistry: reducers.UsersRegistryState;
+  medicalRecord: reducers.MedicalRecordsState;
 }
 
 export interface MainFeatureState extends AppState {
-  usersRegistry: MainState;
+  mainFeature: MainState;
 }
 
 export const mainReducers: ActionReducerMap<MainState> = {
   usersRegistry: reducers.usersRegistryReducer,
+  medicalRecord: reducers.medicalRecordsReducer,
 };
