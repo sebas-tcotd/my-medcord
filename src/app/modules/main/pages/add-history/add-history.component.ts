@@ -7,7 +7,7 @@ import * as MainActions from '../../state/actions';
 @Component({
   selector: 'app-add-history',
   templateUrl: './add-history.component.html',
-  styleUrls: ['./add-history.component.scss'],
+  styleUrls: [],
 })
 export class AddHistoryComponent {
   constructor(private readonly store: Store<MainFeatureState>) {}
