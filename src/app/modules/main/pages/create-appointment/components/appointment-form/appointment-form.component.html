@@ -1,0 +1,135 @@
+<form
+  class="flex flex-col gap-7 px-6 py-11 rounded-xl shadow-md mx-6 mb-12 bg-gray-100 text-gray-20"
+  [formGroup]="appointmentForm"
+>
+  <div class="flex flex-col lg:grid lg:grid-cols-2 gap-7">
+    <div>
+      <label for="id" class="font-medium text-gray-20">N°. de HC</label>
+      <input
+        type="text"
+        id="id"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent disabled:text-gray-50"
+        formControlName="id"
+      />
+    </div>
+
+    <div>
+      <label for="specialty" class="font-medium text-gray-20"
+        >Especialidad *</label
+      >
+      <select
+        id="specialty"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="specialty"
+      >
+        <optgroup label="Selecciona una especialidad">
+          <option [value]="SpecialityEnum.GENERAL">Medicina general</option>
+          <option [value]="SpecialityEnum.OPHTHALMOLOGY">Oftalmología</option>
+          <option [value]="SpecialityEnum.PAEDIATRICS">Pediatría</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div>
+      <label for="doctor" class="font-medium text-gray-20">Doctor *</label>
+      <select
+        id="doctor"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent"
+        formControlName="doctorEmail"
+      >
+        <optgroup label="Selecciona un doctor">
+          <ng-container *ngFor="let doctor of doctors$ | async">
+            <option [value]="doctor.email">
+              {{ doctor.lastname }}, {{ doctor.name }}
+            </option>
+          </ng-container>
+        </optgroup>
+      </select>
+    </div>
+
+    <div>
+      <label for="date" class="font-medium text-gray-20">Fecha *</label>
+      <input
+        type="date"
+        id="date"
+        min="2022-12-24"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent disabled:text-gray-50"
+        formControlName="date"
+      />
+    </div>
+
+    <div>
+      <label for="hour" class="font-medium text-gray-20">Hora *</label>
+      <input
+        type="time"
+        id="hour"
+        min="09:00"
+        max="21:00"
+        class="h-12 w-full px-3 rounded-md | text-sm | border border-gray-80 focus:outline-accent disabled:text-gray-50"
+        formControlName="hour"
+      />
+    </div>
+  </div>
+
+  <hr class="border-gray-80" />
+  <div class="flex flex-row gap-4 justify-end">
+    <button
+      class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest"
+      [disabled]="appointmentForm.invalid"
+      [ngClass]="{
+        'bg-accent-light text-gray-50': appointmentForm.invalid,
+        'bg-accent text-gray-100': appointmentForm.valid
+      }"
+      type="submit"
+      (click)="preconfirmationDialog.showModal()"
+    >
+      Agregar
+    </button>
+    <button class="text-accent font-medium tracking-widest" type="reset">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+<!-- PRECONFIRMATION MODAL -->
+<dialog #preconfirmationDialog class="rounded-md shadow-lg w-[500px]">
+  <div class="flex flex-col">
+    <div class="flex justify-end">
+      <button
+        type="button"
+        class="h-12 w-12 lg:h-6 lg:w-6"
+        (click)="preconfirmationDialog.close()"
+      >
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center gap-12">
+      <div class="flex flex-col gap-3 items-center">
+        <span class="material-symbols-outlined text-5xl text-gray-20">
+          create_new_folder
+        </span>
+        <h4 class="font-medium text-xl text-gray-0">Crear cita médica</h4>
+        <span class="text-sm"
+          >¿Deseas crear la cita médica con los datos ingresados?</span
+        >
+      </div>
+
+      <div class="flex flex-row self-end gap-3">
+        <button
+          class="w-full lg:w-auto lg:px-6 rounded-md | h-12 | font-medium tracking-widest | bg-accent text-gray-100"
+          type="submit"
+          (click)="submitForm(); preconfirmationDialog.close()"
+        >
+          Sí, crear
+        </button>
+        <button
+          class="text-accent font-medium tracking-widest px-6"
+          (click)="preconfirmationDialog.close()"
+        >
+          No, cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>

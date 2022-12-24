@@ -15,7 +15,6 @@ export class AddUserComponent {
   constructor(private readonly store: Store<MainFeatureState>) {}
 
   public handleForm(form: FormGroup) {
-    console.log(form.value);
     this.store.dispatch(MainActions.userAddition({ payload: form.value }));
   }
 }

@@ -10,5 +10,5 @@ export interface User {
   email: string;
   telephone: string;
   role: RoleEnum;
-  id?: number;
+  id?: string;
 }

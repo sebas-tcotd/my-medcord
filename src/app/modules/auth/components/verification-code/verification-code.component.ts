@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class VerificationCodeComponent implements OnInit {
   @Output() verificationCodeEmitter = new EventEmitter<string>();
 
-  protected verificationForm!: FormGroup;
+  public verificationForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router) {}
 

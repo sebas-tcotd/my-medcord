@@ -11,7 +11,7 @@ export const userMock: User = {
   role: RoleEnum.MEDIC,
   telephone: '999999999',
   gender: GenderEnum.MALE,
-  id: 9,
+  id: '9',
 };
 
 export const usersListMock: User[] = [

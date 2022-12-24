@@ -1,0 +1,15 @@
+<div class="flex flex-row justify-start gap-2 items-center px-6 h-16">
+  <span
+    class="material-symbols-outlined text-dominant cursor-pointer"
+    routerLink="/clinical-history"
+  >
+    arrow_back
+  </span>
+  <h2 class="text-sm text-gray-20 font-medium">
+    Escribir consulta en historia clínica
+  </h2>
+</div>
+
+<app-medical-appointment-form
+  (formEmitter)="handleForm($event)"
+></app-medical-appointment-form>

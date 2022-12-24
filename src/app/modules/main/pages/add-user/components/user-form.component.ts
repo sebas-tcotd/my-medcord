@@ -12,9 +12,9 @@ export class UserFormComponent implements OnInit {
   @Output() formDataEmitter: EventEmitter<FormGroup> =
     new EventEmitter<FormGroup>();
 
-  protected addUserForm!: FormGroup;
-  protected GenderEnum = GenderEnum;
-  protected RoleEnum = RoleEnum;
+  public addUserForm!: FormGroup;
+  public GenderEnum = GenderEnum;
+  public RoleEnum = RoleEnum;
 
   constructor(private fb: FormBuilder) {}
 
