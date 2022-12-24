@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+import { Store } from '@ngrx/store';
+import * as MainActions from '../../state/actions';
+
+import { MainFeatureState } from '../../state/main.reducer';
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  styleUrls: ['./add-user.component.scss'],
 })
-export class AddUserComponent implements OnInit {
+export class AddUserComponent {
+  constructor(private readonly store: Store<MainFeatureState>) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public handleForm(form: FormGroup) {
+    this.store.dispatch(MainActions.userAddition({ payload: form.value }));
   }
-
 }

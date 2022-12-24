@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 import { ColDef } from 'ag-grid-community';
-import { PermissionsEnum } from '../../../../core/enums/permissions.enum';
-import { RoleEnum } from '../../../../core/enums/role.enum';
+import { Observable } from 'rxjs';
+import * as mainActions from '../../state/actions';
 import { User } from '../../../../core/models/user.model';
 
 import { usersListMock } from '../../../../mocks/users-list.mock';
+import { MainFeatureState } from '../../state/main.reducer';
+import { selectUsersRegistry } from '../../state/selectors/users-registry.selectors';
 import { UsersTableColumns } from './users.config';
 
 @Component({
@@ -14,10 +17,17 @@ import { UsersTableColumns } from './users.config';
   styles: [],
 })
 export class UsersComponent implements OnInit {
-  public users: User[] = usersListMock;
+  public users$!: Observable<User[] | null>;
   public columns: ColDef[] = UsersTableColumns;
 
-  constructor() {}
+  constructor(private readonly store: Store<MainFeatureState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(mainActions.usersLoad());
+    this.getRegisteredUsers();
+  }
+
+  private getRegisteredUsers() {
+    this.users$ = this.store.select(selectUsersRegistry);
+  }
 }

@@ -28,5 +28,6 @@ export class LoginFormComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginDataEmitter.emit(this.loginForm.value);
     }
+    return;
   }
 }

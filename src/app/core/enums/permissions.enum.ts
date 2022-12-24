@@ -1,5 +1,5 @@
 export enum PermissionsEnum {
-  READER = 'Lector',
-  EDITOR = 'Editor',
-  RESTRICTED = 'Restringido',
+  READER = 'READER',
+  EDITOR = 'EDITOR',
+  RESTRICTED = 'RESTRICTED',
 }

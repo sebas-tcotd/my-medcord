@@ -1,4 +1,4 @@
 export enum GenderEnum {
-  MALE = 'MALE',
-  FEMALE = 'FEMALE',
+  MALE = 'Hombre',
+  FEMALE = 'Mujer',
 }

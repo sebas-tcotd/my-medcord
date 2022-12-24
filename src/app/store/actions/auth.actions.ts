@@ -1,4 +1,6 @@
 import { createAction, props } from '@ngrx/store';
+
+import { LoginErrorResponse, LoginResponse } from '../../core/interfaces/login.interface';
 import { User } from '../../core/models/user.model';
 
 export const loginAttempted = createAction(
@@ -13,17 +15,17 @@ export const verificationCode = createAction(
 
 export const loginSuccessful = createAction(
   '[Auth] LOGIN_SUCCESSFULL',
-  props<{ user: User; accessToken: string }>()
+  props<LoginResponse>()
 );
 
 export const loginFailed = createAction(
   '[Auth] LOGIN_FAILED',
-  props<{ payload: any }>()
+  props<{ payload: LoginErrorResponse }>()
 );
 
 export const setUserData = createAction(
   '[Auth] SET_USER_DATA',
-  props<{ payload: User }>()
+  props<{ user: User }>()
 );
 
 export const unsetUserData = createAction('[Auth] UNSET_USER_DATA');

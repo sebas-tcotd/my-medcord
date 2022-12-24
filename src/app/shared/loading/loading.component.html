@@ -1,0 +1,35 @@
+<ng-container [ngSwitch]="">
+  <dialog
+    #modal
+    class="rounded-md shadow-lg w-[500px] | text-gray-20"
+    *ngSwitchCase=""
+  >
+    <div class="flex flex-col justify-center items-center gap-4">
+      <div class="animate-spin | flex justify-center items-center">
+        <span class="material-symbols-outlined text-7xl"> refresh </span>
+      </div>
+
+      <div>
+        <h4 class="font-medium text-xl text-gray-0">Cargando...</h4>
+        <span class="text-sm">Espere, por favor.</span>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog
+    class="rounded-md shadow-lg w-[500px] | text-gray-20"
+    *ngSwitchCase=""
+  >
+    <div class="flex flex-col justify-center items-center gap-4">
+      <div class="animate-spin | flex justify-center items-center">
+        <span class="material-symbols-outlined text-7xl"> error </span>
+      </div>
+
+      <div>
+        <h4 class="font-medium text-xl text-gray-0">Ocurrió un error</h4>
+        <span class="text-sm">Código HTTP: {{ 400 }} </span>
+        <span class="text-sm">{{ "mesage" }}</span>
+      </div>
+    </div>
+  </dialog>
+</ng-container>

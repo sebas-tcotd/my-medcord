@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GenderEnum } from '../../../../../core/enums/gender.enum';
+import { RoleEnum } from '../../../../../core/enums/role.enum';
 
 @Component({
   selector: 'app-user-form',
@@ -7,7 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styles: [],
 })
 export class UserFormComponent implements OnInit {
-  protected addUserForm!: FormGroup;
+  @Output() formDataEmitter: EventEmitter<FormGroup> =
+    new EventEmitter<FormGroup>();
+
+  public addUserForm!: FormGroup;
+  public GenderEnum = GenderEnum;
+  public RoleEnum = RoleEnum;
 
   constructor(private fb: FormBuilder) {}
 
@@ -15,17 +22,23 @@ export class UserFormComponent implements OnInit {
     this.setupForm();
   }
 
-  private setupForm() {
+  private setupForm(): void {
     this.addUserForm = this.fb.group({
-      surname: ['', Validators.required],
+      name: ['', Validators.required],
       lastname: ['', Validators.required],
       gender: ['', Validators.required],
       dni: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', [Validators.required]],
       role: ['', Validators.required],
-      permission: ['', Validators.required],
-      signatureAndStamp: ['', Validators.required],
+      password: ['', Validators.required],
+      signatureAndStamp: [''],
     });
+  }
+
+  public emitForm(): void {
+    if (this.addUserForm.valid) {
+      this.formDataEmitter.emit(this.addUserForm);
+    }
   }
 }
