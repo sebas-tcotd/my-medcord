@@ -1,0 +1,12 @@
+<div class="flex gap-3 items-center flex-row h-full cursor-pointer">
+  <ng-container *ngFor="let option of options">
+    <button
+      type="button"
+      class="flex items-center w-12"
+      [routerLink]="[option.redirect, keyId]"
+      [title]="option.redirect"
+    >
+      <span class="material-symbols-outlined"> {{ option?.icon }} </span>
+    </button>
+  </ng-container>
+</div>
