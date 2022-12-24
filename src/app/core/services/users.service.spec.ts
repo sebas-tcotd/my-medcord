@@ -57,7 +57,7 @@ describe('UsersService', () => {
       email: "luisa.fernandez@gmail.com",
       telephone: "96435353",
       role: RoleEnum.NURSE,
-      id: 10
+      id: "10"
     }
 
     usersService.addUserToRegistry(user)

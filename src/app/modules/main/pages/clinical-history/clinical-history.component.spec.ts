@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
 import { ClinicalHistoryComponent } from './clinical-history.component';
-import { ClinicalHistoryTableColumns } from './clinical-history.config';
 
 describe('ClinicalHistoryComponent', () => {
   let component: ClinicalHistoryComponent;
@@ -25,9 +24,5 @@ describe('ClinicalHistoryComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should render the options column', () => {
-    ClinicalHistoryTableColumns[ClinicalHistoryTableColumns.length - 1].cellRenderer()
   });
 });
